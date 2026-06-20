@@ -1,0 +1,85 @@
+2026-06-20 19:02:07,764 | app.main -> INFO: Процесс запущен!
+2026-06-20 19:02:27,270 | app.main -> INFO: Приостановлен!
+2026-06-20 19:05:52,814 | app.main -> INFO: Процесс запущен!
+2026-06-20 19:06:19,548 | app.main -> INFO: Процесс запущен!
+2026-06-20 19:06:35,712 | sqlalchemy.engine.Engine -> INFO: select pg_catalog.version()
+2026-06-20 19:06:35,713 | sqlalchemy.engine.Engine -> INFO: [raw sql] ()
+2026-06-20 19:06:35,718 | sqlalchemy.engine.Engine -> INFO: select current_schema()
+2026-06-20 19:06:35,718 | sqlalchemy.engine.Engine -> INFO: [raw sql] ()
+2026-06-20 19:06:35,722 | sqlalchemy.engine.Engine -> INFO: show standard_conforming_strings
+2026-06-20 19:06:35,722 | sqlalchemy.engine.Engine -> INFO: [raw sql] ()
+2026-06-20 19:06:35,725 | sqlalchemy.engine.Engine -> INFO: BEGIN (implicit)
+2026-06-20 19:06:35,735 | sqlalchemy.engine.Engine -> INFO: SELECT courses.title, courses.description, courses.id 
+FROM courses 
+WHERE courses.id = $1::INTEGER
+2026-06-20 19:06:35,737 | sqlalchemy.engine.Engine -> INFO: [generated in 0.00038s] (3,)
+2026-06-20 19:06:35,762 | app.routers.courses -> WARNING: Ошибка при поиске курса: Курс не существует!
+2026-06-20 19:06:35,762 | sqlalchemy.engine.Engine -> INFO: ROLLBACK
+2026-06-20 19:14:32,609 | app.main -> INFO: Процесс запущен!
+2026-06-20 19:14:42,599 | sqlalchemy.engine.Engine -> INFO: select pg_catalog.version()
+2026-06-20 19:14:42,599 | sqlalchemy.engine.Engine -> INFO: [raw sql] ()
+2026-06-20 19:14:42,604 | sqlalchemy.engine.Engine -> INFO: select current_schema()
+2026-06-20 19:14:42,605 | sqlalchemy.engine.Engine -> INFO: [raw sql] ()
+2026-06-20 19:14:42,607 | sqlalchemy.engine.Engine -> INFO: show standard_conforming_strings
+2026-06-20 19:14:42,607 | sqlalchemy.engine.Engine -> INFO: [raw sql] ()
+2026-06-20 19:14:42,609 | sqlalchemy.engine.Engine -> INFO: BEGIN (implicit)
+2026-06-20 19:14:42,616 | sqlalchemy.engine.Engine -> INFO: SELECT courses.id, courses.title, courses.description, avg(reviews.rating) AS avg_rating, count(reviews.id) AS reviews_count 
+FROM courses LEFT OUTER JOIN reviews ON courses.id = reviews.course_id GROUP BY courses.id
+2026-06-20 19:14:42,618 | sqlalchemy.engine.Engine -> INFO: [generated in 0.00024s] ()
+2026-06-20 19:14:42,650 | sqlalchemy.engine.Engine -> INFO: ROLLBACK
+2026-06-20 19:14:52,522 | sqlalchemy.engine.Engine -> INFO: BEGIN (implicit)
+2026-06-20 19:14:52,526 | sqlalchemy.engine.Engine -> INFO: SELECT courses.title, courses.description, courses.id 
+FROM courses 
+WHERE courses.id = $1::INTEGER
+2026-06-20 19:14:52,526 | sqlalchemy.engine.Engine -> INFO: [generated in 0.00046s] (1,)
+2026-06-20 19:14:52,532 | app.routers.courses -> WARNING: Курс не найден: id=1 — Курс не существует!
+2026-06-20 19:14:52,533 | sqlalchemy.engine.Engine -> INFO: ROLLBACK
+2026-06-20 19:15:14,949 | sqlalchemy.engine.Engine -> INFO: BEGIN (implicit)
+2026-06-20 19:15:14,950 | sqlalchemy.engine.Engine -> INFO: SELECT courses.title, courses.description, courses.id 
+FROM courses 
+WHERE courses.id = $1::INTEGER
+2026-06-20 19:15:14,950 | sqlalchemy.engine.Engine -> INFO: [cached since 22.42s ago] (2,)
+2026-06-20 19:15:14,953 | sqlalchemy.engine.Engine -> INFO: ROLLBACK
+2026-06-20 19:16:48,464 | app.main -> INFO: Приостановлен!
+2026-06-20 19:24:57,365 | app.main -> INFO: Процесс запущен!
+2026-06-20 19:25:05,388 | sqlalchemy.engine.Engine -> INFO: select pg_catalog.version()
+2026-06-20 19:25:05,389 | sqlalchemy.engine.Engine -> INFO: [raw sql] ()
+2026-06-20 19:25:05,419 | sqlalchemy.engine.Engine -> INFO: select current_schema()
+2026-06-20 19:25:05,420 | sqlalchemy.engine.Engine -> INFO: [raw sql] ()
+2026-06-20 19:25:05,422 | sqlalchemy.engine.Engine -> INFO: show standard_conforming_strings
+2026-06-20 19:25:05,422 | sqlalchemy.engine.Engine -> INFO: [raw sql] ()
+2026-06-20 19:25:05,424 | sqlalchemy.engine.Engine -> INFO: BEGIN (implicit)
+2026-06-20 19:25:05,436 | sqlalchemy.engine.Engine -> INFO: SELECT courses.id, courses.title, courses.description, avg(reviews.rating) AS avg_rating, count(reviews.id) AS reviews_count 
+FROM courses LEFT OUTER JOIN reviews ON courses.id = reviews.course_id 
+WHERE courses.id = $1::INTEGER GROUP BY courses.id
+2026-06-20 19:25:05,438 | sqlalchemy.engine.Engine -> INFO: [generated in 0.00046s] (2,)
+2026-06-20 19:25:05,479 | sqlalchemy.engine.Engine -> INFO: ROLLBACK
+2026-06-20 19:25:23,519 | app.main -> INFO: Приостановлен!
+2026-06-20 19:25:25,847 | app.main -> INFO: Процесс запущен!
+2026-06-20 19:25:30,239 | sqlalchemy.engine.Engine -> INFO: select pg_catalog.version()
+2026-06-20 19:25:30,239 | sqlalchemy.engine.Engine -> INFO: [raw sql] ()
+2026-06-20 19:25:30,268 | sqlalchemy.engine.Engine -> INFO: select current_schema()
+2026-06-20 19:25:30,268 | sqlalchemy.engine.Engine -> INFO: [raw sql] ()
+2026-06-20 19:25:30,271 | sqlalchemy.engine.Engine -> INFO: show standard_conforming_strings
+2026-06-20 19:25:30,271 | sqlalchemy.engine.Engine -> INFO: [raw sql] ()
+2026-06-20 19:25:30,273 | sqlalchemy.engine.Engine -> INFO: BEGIN (implicit)
+2026-06-20 19:25:30,290 | sqlalchemy.engine.Engine -> INFO: SELECT courses.id, courses.title, courses.description, avg(reviews.rating) AS avg_rating, count(reviews.id) AS review_count 
+FROM courses LEFT OUTER JOIN reviews ON courses.id = reviews.course_id 
+WHERE courses.id = $1::INTEGER GROUP BY courses.id
+2026-06-20 19:25:30,291 | sqlalchemy.engine.Engine -> INFO: [generated in 0.00072s] (2,)
+2026-06-20 19:25:30,320 | sqlalchemy.engine.Engine -> INFO: ROLLBACK
+2026-06-20 19:26:54,464 | app.main -> INFO: Приостановлен!
+2026-06-20 19:26:57,674 | app.main -> INFO: Процесс запущен!
+2026-06-20 19:26:59,384 | sqlalchemy.engine.Engine -> INFO: select pg_catalog.version()
+2026-06-20 19:26:59,385 | sqlalchemy.engine.Engine -> INFO: [raw sql] ()
+2026-06-20 19:26:59,387 | sqlalchemy.engine.Engine -> INFO: select current_schema()
+2026-06-20 19:26:59,387 | sqlalchemy.engine.Engine -> INFO: [raw sql] ()
+2026-06-20 19:26:59,414 | sqlalchemy.engine.Engine -> INFO: show standard_conforming_strings
+2026-06-20 19:26:59,414 | sqlalchemy.engine.Engine -> INFO: [raw sql] ()
+2026-06-20 19:26:59,416 | sqlalchemy.engine.Engine -> INFO: BEGIN (implicit)
+2026-06-20 19:26:59,430 | sqlalchemy.engine.Engine -> INFO: SELECT courses.id, courses.title, courses.description, avg(reviews.rating) AS avg_rating, count(reviews.id) AS review_count 
+FROM courses LEFT OUTER JOIN reviews ON courses.id = reviews.course_id 
+WHERE courses.id = $1::INTEGER GROUP BY courses.id
+2026-06-20 19:26:59,430 | sqlalchemy.engine.Engine -> INFO: [generated in 0.00102s] (2,)
+2026-06-20 19:26:59,438 | sqlalchemy.engine.Engine -> INFO: ROLLBACK
+2026-06-20 22:16:08,585 | app.main -> INFO: Приостановлен!
