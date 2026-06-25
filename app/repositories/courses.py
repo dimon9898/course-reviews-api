@@ -17,8 +17,8 @@ class CourseRepository:
                                             Course.id,
                                             Course.title,
                                             Course.description,
-                                            func.avg(Review.rating).label('avg_rating'),
-                                            func.count(Review.id).label('reviews_count'))
+                                            func.coalesce(func.round(func.avg(Review.rating), 1), 0.0).label('avg_rating'),
+                                            func.count(Review.id).label('review_count'))
                                         .outerjoin(Course.reviews)
                                         .group_by(Course.id))
 
@@ -31,7 +31,7 @@ class CourseRepository:
         result = await self.db.execute(select(Course.id,
                                               Course.title,
                                               Course.description,
-                                              func.avg(Review.rating).label('avg_rating'),
+                                              func.coalesce(func.round(func.avg(Review.rating), 1), 0.0).label('avg_rating'),
                                               func.count(Review.id).label('review_count'))
                                         .outerjoin(Course.reviews)
                                         .where(Course.id == course_id)

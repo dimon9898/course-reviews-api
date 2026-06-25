@@ -1,25 +1,15 @@
 
-
-class CourseServerError(Exception):
-    message: str
+from app.exceptions.base_exc import AppError
 
 
-class CourseError(Exception):
-    message: str
-
-
-
-
-
-
-class CourseNotFound(CourseError):
+class CourseNotFound(AppError):
     def __init__(self):
         self.message = 'Курс не существует!'
         super().__init__(self.message)
 
 
 
-class CourseDublicateError(CourseError):
+class CourseDublicateError(AppError):
     def __init__(self, title: str):
         self.message = f'Курс с названием "{title}" уже существует'
         super().__init__(self.message)

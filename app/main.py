@@ -3,7 +3,7 @@ import logging
 from fastapi import FastAPI
 from contextlib import asynccontextmanager
 
-from app.routers import courses
+from app.routers import courses, reviews
 from app.core.logger import setuplogging
 
 logger = logging.getLogger(__name__)
@@ -20,6 +20,7 @@ async def lifespan(app: FastAPI):
 app = FastAPI(lifespan=lifespan)
 
 app.include_router(courses.router)
+app.include_router(reviews.router)
 
 
 
